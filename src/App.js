@@ -19,6 +19,7 @@ export default class App extends Component {
   /* React.Component : componentDidMount() est appelée immédiatement après que le composant est monté (inséré dans l’arbre). C’est ici que vous devriez placer les initialisations qui requièrent l’existence de nœuds du DOM. Si vous avez besoin de charger des données depuis un point d’accès distant, c’est aussi le bon endroit pour déclencher votre requête réseau.*/
   //si chargement ok, les données du json sont dans this.state.JsonDatas
   componentDidMount() {
+    // setState : planifie des modifications à l’état local du composant, et indique à React que ce composant et ses enfants ont besoin d’être rafraîchis une fois l’état mis à jour. C’est en général ainsi qu’on met à jour l’interface utilisateur en réaction à des événements ou réponses réseau.
     this.setState({ isLoading: true });
 
     fetch(`datas/logements.json`)
