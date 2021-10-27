@@ -1,0 +1,20 @@
+.BlocDynAbout {
+
+
+
+
+    &__header {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: $text-color-defaut;
+        border-radius: 5px;
+        color: $text-color-secondaire;
+        padding: 1.5rem 1rem;
+        height: 2.5rem;
+        h4{font-weight: 400;font-size: 1.3rem;}
+    }
+
+
+}
