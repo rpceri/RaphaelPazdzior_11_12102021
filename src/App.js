@@ -23,10 +23,14 @@ export default class App extends Component {
     this.setState({ isLoading: true });
 
     fetch(`datas/logements.json`)
-      .then(response => {
-        if (response.ok) return response.json();
+      .then(response => { // https://www.pierre-giraud.com/javascript-apprendre-coder-cours/api-fetch/ : L’API Fetch fournit une définition pour trois interfaces Request, Response et Headers et implémente également le mixin Body qu’on va pouvoir utiliser avec nos requêtes.
+        if (response.ok) return response.json(); // fetch() retourne  une promesse contenant la réponse (si tout se passe bien). 
+                                                 // il faut indiquer le format de réponse souhaité : Ici, on choisit JSON avec response.json(). 
+                                                 // la propriété ok contient un booléen : true si le statut code HTTP de la réponse est compris entre 200 et 299, false sinon. 
+                                                 // La propriété status va renvoyer le statut code HTTP de la réponse (la valeur numérique liée à ce statut comme 200, 301, 404 ou 500). 
         else throw new Error('Erreur response json');
         })
+      //.then(response => alert(JSON.stringify(response)))
       .then(donneesDuJson => this.setState({ JsonDatas: donneesDuJson, isLoading: false })) 
       .catch(error => this.setState({ error, isLoading: false }));
   }

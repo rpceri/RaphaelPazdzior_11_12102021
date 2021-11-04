@@ -17,7 +17,18 @@ export default class Home extends Component {
               </div>
 
             {console.log(this.state.logementDatasCpHF)}
-
+            <section >
+                {this.state.logementDatasCpHF.map(unLogement => {
+                    return (
+                        <div key={unLogement.id}> 
+                            <article>
+                                <img src={unLogement.cover} alt={unLogement.title} />
+                                <p>{unLogement.title}</p>
+                            </article>
+                        </div>
+                         )
+                })}
+            </section>
             </main>
         )
     }
