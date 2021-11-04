@@ -20,7 +20,7 @@ export default class Home extends Component {
             <section >
                 {this.state.logementDatasCpHF.map(unLogement => {
                     return (
-                        <div key={unLogement.id}> 
+                        <div key={unLogement.id}> {/* utiliser link de react-router-dom" ? */}
                             <article>
                                 <img src={unLogement.cover} alt={unLogement.title} />
                                 <p>{unLogement.title}</p>

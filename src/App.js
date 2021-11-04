@@ -18,7 +18,8 @@ export default class App extends Component {
 
   /* React.Component : componentDidMount() est appelée immédiatement après que le composant est monté (inséré dans l’arbre). C’est ici que vous devriez placer les initialisations qui requièrent l’existence de nœuds du DOM. Si vous avez besoin de charger des données depuis un point d’accès distant, c’est aussi le bon endroit pour déclencher votre requête réseau.*/
   //si chargement ok, les données du json sont dans this.state.JsonDatas
-  componentDidMount() {
+  async componentDidMount() {
+    /* ancienne methode, moins bien car les 2 then sont lancé en paraellèle !
     // setState : planifie des modifications à l’état local du composant, et indique à React que ce composant et ses enfants ont besoin d’être rafraîchis une fois l’état mis à jour. C’est en général ainsi qu’on met à jour l’interface utilisateur en réaction à des événements ou réponses réseau.
     this.setState({ isLoading: true });
 
@@ -32,7 +33,20 @@ export default class App extends Component {
         })
       //.then(response => alert(JSON.stringify(response)))
       .then(donneesDuJson => this.setState({ JsonDatas: donneesDuJson, isLoading: false })) 
-      .catch(error => this.setState({ error, isLoading: false }));
+      .catch(error => this.setState({ error, isLoading: false }));*/
+
+      this.setState({ msg:"en cours de chargement", isLoading: true });
+      try{
+          const response = await fetch(`datas/logements.json`);
+          let donneesDuJson = null;
+          if (response.ok) donneesDuJson = await response.json();
+          this.setState({ JsonDatas: donneesDuJson, isLoading: false }) ;
+          return donneesDuJson;
+      }
+      catch(err){
+          this.setState({ msg: "erreur lors du chargement", error: true, isLoading: false }) ;
+          new Error('Erreur response json');
+      }
   }
   
   render() {    
