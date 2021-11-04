@@ -12,8 +12,12 @@ export default class Home extends Component {
   render() {
         return (
             <main>
-             Accueil
+              <div className="imgEntete" style={{backgroundImage: `url('img/background_home.png')`}}>
+                <h3 className="imgEntete__title">Chez vous, partout et ailleurs</h3>
+              </div>
+
             {console.log(this.state.logementDatasCpHF)}
+
             </main>
         )
     }
