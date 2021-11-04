@@ -3,4 +3,6 @@
 
 @import './SCSS/home.scss';
 @import './SCSS/about.scss';
-@import './SCSS/BlocDynamique.scss'; /* utilisé dans about pour le moment */
+@import './SCSS/BlocDynamique.scss'; /* utilisé dans about et DetailEtablissement */
+/* @import './components/DetailEtablissement/DetailEtablissement.scss'*/
+@import './SCSS/DetailEtablissement.scss'

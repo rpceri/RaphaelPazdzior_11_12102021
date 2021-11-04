@@ -7,7 +7,7 @@ import ComposantHeader from "./components/Header.js";
 import ComposantFooter from "./components/Footer.js";
 import ComposantPageHome from "./components/Home.js";
 import ComposantPageAbout from "./components/About.js";
-
+import ComposantDetailEtablissement from "./components/DetailEtablissement/DetailEtablissement.js";
 
 export default class RouteConfig extends Component {
     render() {
@@ -22,6 +22,9 @@ export default class RouteConfig extends Component {
                         </Route>
                         <Route path="/about">
                             <ComposantPageAbout />
+                        </Route>
+                        <Route path="/DetailEtablissement/:etablissementId">
+                            <ComposantDetailEtablissement logementDatasDe={this.props.logementDatas}/>
                         </Route>
                     </Switch>
 

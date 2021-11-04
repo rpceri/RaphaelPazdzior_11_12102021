@@ -1,0 +1,86 @@
+.info-etab-detail {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2.5rem;
+
+    @media screen and (max-width: 600px) {
+        flex-direction: column;
+    }
+
+    &__gauche {
+       &__title {
+        font-weight: 500;
+        font-size: 2rem;
+       } 
+       &__location {
+         margin-top: .5rem;
+         margin-bottom: 2rem;
+       }
+    }
+
+    &__droite {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @media screen and (max-width: 600px) {
+            flex-direction: row;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+
+        &__info-auteur {
+            display: flex;
+            align-items: center;
+            margin-top: -1rem;
+             @media screen and (max-width: 600px) {
+                 margin-top: 0;
+                 order: 2;
+             }
+
+             img {
+                border-radius: 100px;
+                width: 5rem;
+            }
+        }
+
+        &__auteur {
+            margin-right: .5rem;
+            line-height: 2rem;
+            &__firstname ,
+            &__lastname {
+                text-align: end;
+            }
+        }
+
+
+    }
+}
+
+.scores {
+    margin-top: 2rem;
+    font-family: 'Font Awesome 5 Free';
+    @media screen and (max-width: 600px) {
+        margin-top: 0;
+    }
+    &__stars-fond {
+        display: inline-block;
+        position: relative;
+        font-size: 2rem;
+        font-weight: 800;
+        color: $color-fond-bloc;
+        &::before {
+            content: "\f005 \f005 \f005 \f005 \f005"; /* https://fontawesome.com/v5.15/icons/star?style=solid*/
+        }
+    }
+    &__stars-inner {
+        position: absolute;
+        top: 0;  
+        overflow: hidden;       
+ 
+        &::before {
+          content: "\f005 \f005 \f005 \f005 \f005";
+          color: $text-color-defaut;
+        }
+    }
+}

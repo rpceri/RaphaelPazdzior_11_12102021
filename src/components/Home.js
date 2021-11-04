@@ -1,6 +1,7 @@
 /* importé depuis Routes.js */
 
 import { Component } from "react";
+import { Link } from "react-router-dom";
 
 export default class Home extends Component {
     constructor(props) {
@@ -20,12 +21,12 @@ export default class Home extends Component {
             <section >
                 {this.state.logementDatasCpHF.map(unLogement => {
                     return (
-                        <div key={unLogement.id}> {/* utiliser link de react-router-dom" ? */}
+                        <Link to={`/DetailEtablissement/${unLogement.id}`} key={unLogement.id}> {/* link de react-router-dom pertmet d'avoir des balise <a> */}
                             <article>
                                 <img src={unLogement.cover} alt={unLogement.title} />
                                 <p>{unLogement.title}</p>
                             </article>
-                        </div>
+                        </Link>
                          )
                 })}
             </section>
