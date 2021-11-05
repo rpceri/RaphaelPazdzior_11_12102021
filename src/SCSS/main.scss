@@ -4,6 +4,7 @@ $text-color-secondaire: #FFFFFF;
 $text-color-defaut: #FF6060;
 $color-fond-bloc: #F6F6F6;
 $color-fond-secondaire: #FF6060;
+$color-fond-footer: #000000;
 
 *,*::after, *::before {
     margin: 0;
@@ -22,12 +23,14 @@ body {
     box-sizing: border-box;
     cursor: default;
     font-size: 1rem;
-    min-height: 100vh;
+    /*min-height: 100vh;*/
 }
 
 main {
     margin:0 5rem 0 5rem;
-    min-height: 75vh;
+    /*min-height: 75vh;*/
+    min-height: 680px;
+
     @media screen and (max-width: 600px) {
         margin:0 1rem 0 1rem;
     }

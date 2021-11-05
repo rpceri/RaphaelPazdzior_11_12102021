@@ -1,0 +1,19 @@
+footer {
+    width: 100%;
+    height: 100px;
+    background-color: $color-fond-footer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: $text-color-secondaire;
+
+    img {
+        width: 10rem;
+    }
+
+    p {
+        padding-top: 1.8rem;
+    }
+    
+}
