@@ -1,4 +1,4 @@
-/* importé depuis About.js */
+/* importé depuis About.js et DetailEtablissement.js */
 
 import { Component } from "react";
 

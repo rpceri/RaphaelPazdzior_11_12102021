@@ -3,6 +3,7 @@ import { withRouter } from "react-router";
 import { NavLink } from "react-router-dom";
 
 import BlocDynamique from "../BlocDynamique.js";
+import Pictures from "../Pictures.js";
 
 class DetailEtablissement extends Component {
     constructor(props) {
@@ -49,6 +50,7 @@ class DetailEtablissement extends Component {
               {this.state.DonneesDeLetab.map(elCourant => {
                   return (
                     <main key={elCourant.id}>
+                        <Pictures datas={this.state.DonneesDeLetab} />
                         <section className="info-etab-detail">
                             <div className="info-etab-detail__gauche">
                                 <h1 className="info-etab-detail__gauche__title">{elCourant.title}</h1>
