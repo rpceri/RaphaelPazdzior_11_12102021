@@ -63,7 +63,7 @@ class DetailEtablissement extends Component {
 
                             <div className="info-etab-detail__droite">
                                 <div className="info-etab-detail__droite__info-auteur">
-                                    <div className="info-etab-detail__droite_auteur"> 
+                                    <div className="info-etab-detail__droite__auteur"> 
                                     { /* decompo de "host": {"name": "Nathalie Jean",} : */ }
                                         <p className="info-etab-detail__droite__auteur__firstname">{elCourant.host.name.split(' ', 1)}</p>
                                         <p className="info-etab-detail__droite__auteur__lastname">{elCourant.host.name.split(' ').pop()}</p>

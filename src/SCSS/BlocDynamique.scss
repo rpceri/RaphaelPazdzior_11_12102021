@@ -1,3 +1,15 @@
+.general-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+
+        @media screen and (max-width: 600px) {
+            flex-direction: column;
+            margin-bottom: 2rem;
+        }
+
+}
+
 .BlocDynAbout {
     margin: 0 auto;
     width: 80%;
