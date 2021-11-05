@@ -8,11 +8,11 @@ export default class Header extends Component {
     render() {
         return (
             <header className='header'>
-                <div className='header__logo'>
-                    <img src={`img/logo_kasa.png`} alt="Kasa" />
+                <div>
+                    <img src={`${process.env.PUBLIC_URL}/img/logo_kasa_rouge.png`} alt="Kasa" />
                 </div>
                 <div className='header__links'>
-                    <NavLink exact activeClassName='active' to="/">Accueil</NavLink> {/* exact car sinon le chemin / est toujorus vrai*/}
+                    <NavLink exact activeClassName='active' to="/">Accueil</NavLink> {/* exact car sinon le chemin / est toujours vrai*/}
                     <NavLink activeClassName='active' to="/about">A Propos</NavLink>
                 </div>
             </header>        
