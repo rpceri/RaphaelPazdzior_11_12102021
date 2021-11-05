@@ -53,10 +53,9 @@ class DetailEtablissement extends Component {
                             <div className="info-etab-detail__gauche">
                                 <h1 className="info-etab-detail__gauche__title">{elCourant.title}</h1>
                                 <p className="info-etab-detail__gauche__location">{elCourant.location}</p>
-                                tags :
                                 <div key={elCourant.id} className="tags">
                                     {elCourant.tags.map((e, index) => {
-                                    return <p key={index} className="tags__item">{e}</p>
+                                    return <p key={index} className="tags__unTag">{e}</p>
                                     })}
                                 </div>
                             </div>

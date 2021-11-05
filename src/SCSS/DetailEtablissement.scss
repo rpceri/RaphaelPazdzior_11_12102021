@@ -57,6 +57,26 @@
     }
 }
 
+.tags {
+    display: flex;
+    align-items: center;
+    &__unTag {
+        border-radius: 10px;
+        background-color: $color-fond-secondaire;
+        color: $text-color-secondaire;
+        padding: .3rem 1rem;
+        font-weight: 400;
+        @media screen and (max-width: 600px) {
+            font-size: 1rem;
+        }
+
+        
+        &:not(:last-child) {
+            margin-right: 1rem;
+        }
+    }
+}
+
 .scores {
     margin-top: 2rem;
     font-family: 'Font Awesome 5 Free';
