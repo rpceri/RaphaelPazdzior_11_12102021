@@ -1,56 +1,49 @@
 import { Component } from "react";
 import { withRouter } from "react-router";
-import { NavLink } from "react-router-dom";
+//import { NavLink, Redirect } from "react-router-dom";
+import ComposantPage404 from "./Page404.js"
 
-import BlocDynamique from "../BlocDynamique.js";
-import Pictures from "../Pictures.js";
+import BlocDynamique from "./BlocDynamique.js";
+import PicturesGalery from "./PicturesGalery.js";
 
 class DetailEtablissement extends Component {
     constructor(props) {
     super(props);
     //console.log(`this.props.match.params.etablissementId : ${this.props.match.params.etablissementId}`)
         this.state = {
-            datas: this.props.logementDatasDe,
-            DonneesDeLetab: this.props.logementDatasDe.filter(elemnt => elemnt.id === this.props.match.params.etablissementId), // pour n'avoir que les données de l'étab
-
-            blocDescription: {
-                titre: "Description",
-                texte: (this.props.logementDatasDe.filter(elemnt => elemnt.id === this.props.match.params.etablissementId)).map(elmnt => elmnt.description),
-            },
-
-            blocEquipements: {
-                titre: "Equipements",
-                texte: (this.props.logementDatasDe.filter(elemnt => elemnt.id === this.props.match.params.etablissementId)).map((el => el.equipments.map((el, index) => {
-                        return <li className="equipments__list-item" key={index}>{el}</li>
-                    }))),
-            },
-            classBlocDyn: "BlocDynDetailEtab",
+            DonneesDeLetab: this.props.logementDatasDe.filter(elemnt => elemnt.id === this.props.match.params.etablissementId)[0], // pour n'avoir que les données de l'étab
         }
     
     };
     
     render() {
+        const elCourant  = this.state.DonneesDeLetab
         // si l'id passé en parametre ne matche pas :
-        if (this.state.DonneesDeLetab.length === 0) return (
-            <section className="">
-                <div className="">
-                    <h1>404</h1>
-                    <p>Oups! La page que vous demandez n'existe pas.</p>
-                    <NavLink to="/">Retourner sur la page d'accueil</NavLink>
-                </div>
-            </section>          
+        if (!this.state.DonneesDeLetab) return (
+           // <Redirect to="/404"></Redirect>
+          <ComposantPage404 />
         )
 
-        const rating = this.state.DonneesDeLetab.map(ele => ele.rating);
+        
+        const rating = elCourant.rating
         const pourcentage = (rating / 5) * 100; // 5 = nb étoiles Max
         const pourcentageEntier = `${(Math.round(pourcentage / 10) * 10)}%`;
 
+        const blocEquipements2 = {
+            titre: "Equipements",
+            texte: elCourant.equipments.map((et, index) => {
+                return <li className="equipments__list-item" key={index}>{et}</li>
+            })        
+        }
+        const blocDescription2 = {
+            titre: "Description",
+            texte: elCourant.description,
+        }
+
+
         return (
-            <> { /* <> = fragment pour grouper la liste des enfants */ }
-              {this.state.DonneesDeLetab.map(elCourant => {
-                  return (
                     <main key={elCourant.id}>
-                        <Pictures datas={this.state.DonneesDeLetab} />
+                        <PicturesGalery datas={elCourant.pictures} />
                         <section className="info-etab-detail">
                             <div className="info-etab-detail__gauche">
                                 <h1 className="info-etab-detail__gauche__title">{elCourant.title}</h1>
@@ -79,17 +72,16 @@ class DetailEtablissement extends Component {
                             </div> 
                           </section>
                           <section className="general-info">
-                            <BlocDynamique donneesBloc={this.state.blocDescription} class={this.state.classBlocDyn} />
-                            <BlocDynamique donneesBloc={this.state.blocEquipements} class={this.state.classBlocDyn} />
+                            <BlocDynamique donneesBloc={blocDescription2} class="BlocDynDetailEtab" />
+                            <BlocDynamique donneesBloc={blocEquipements2} class="BlocDynDetailEtab" />
                           </section>
                           
                     </main>
-                         )
-                })}
-            </>
         )
+
     };
-    
+
 };
 
-export default withRouter(DetailEtablissement); // le composant d'en-tête est encapsulé dans une withRouter fonction, Cela donne au Headercomposant l'accès à this.props.history, ce qui signifie que l'en-tête peut désormais rediriger l'utilisateur.
+export default withRouter(DetailEtablissement) // https://www.it-swarm-fr.com/fr/reactjs/quest-ce-que-withrouter-pour-react-router-dom/808235258/ le composant d'en-tête est encapsulé dans une withRouter fonction, Cela donne au Headercomposant l'accès à this.props.history, ce qui signifie que l'en-tête peut désormais rediriger l'utilisateur.
+// utile pour récuperer le paramètre etablissementId

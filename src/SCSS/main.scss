@@ -22,14 +22,13 @@ body {
     color: $text-color-defaut;
     box-sizing: border-box;
     cursor: default;
-    font-size: 1rem;
     /*min-height: 100vh;*/
 }
 
 main {
     margin:0 5rem 0 5rem;
-    /*min-height: 75vh;*/
-    min-height: 680px;
+    min-height: 75vh;
+    /*min-height: 280px;*/
 
     @media screen and (max-width: 600px) {
         margin:0 1rem 0 1rem;

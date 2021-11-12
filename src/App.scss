@@ -1,12 +1,9 @@
-@import './SCSS/main.scss'; /* commun a toutes les pages, contient notamment les variables et els style des balises de bases*/
-@import './SCSS/header.scss';
-@import './SCSS/footer.scss';
-@import './SCSS/home.scss';
-@import './SCSS/about.scss';
+@import './SCSS/Main.scss'; /* commun a toutes les pages, contient notamment les variables et els style des balises de bases*/
+@import './SCSS/Header.scss';
+@import './SCSS/Footer.scss';
+@import './SCSS/Home.scss';
+@import './SCSS/About.scss';
 @import './SCSS/BlocDynamique.scss'; /* utilisé dans about et DetailEtablissement */
-/* @import './components/DetailEtablissement/DetailEtablissement.scss'*/
-
 @import './SCSS/DetailEtablissement.scss';
-@import './SCSS/Pictures.scss';
-
-
+@import './SCSS/PicturesGalery.scss';
+@import './SCSS/Page404.scss';

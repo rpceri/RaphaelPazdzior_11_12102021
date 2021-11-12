@@ -39,8 +39,7 @@ export default class App extends Component {
       this.setState({ msg:"en cours de chargement", isLoading: true });
      
       try{
-        console.log('try dans componentDidMount');
-          const response = await fetch(`${process.env.PUBLIC_URL}/datas/logements.json`); // bien metre ${process.env.PUBLIC_URL} sinon ca ne marche lpus au rechagement de la page de détail par ex
+          const response = await fetch(`${process.env.PUBLIC_URL}/datas/logements_orig.json`); // bien metre ${process.env.PUBLIC_URL} sinon ca ne marche lpus au rechagement de la page de détail par ex
           let donneesDuJson = null;
           if (response.ok) donneesDuJson = await response.json();
          // alert(JSON.stringify(donneesDuJson))

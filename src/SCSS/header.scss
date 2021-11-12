@@ -1,12 +1,23 @@
 .header {
     //border: 1px blue solid;
     margin: 0 5rem;
+
     height: 10vh;
+    min-height: 70px;
     display: flex;
     align-items: center;
 
+    @media screen and (min-width: 1200px) {
+        margin: 0 auto;
+        width: 110rem;
+    }
+    @media screen and (max-width: 400px) {
+        display:block;
+        height: 12vh;
+    }
+
     img {
-         width: 8rem;
+         width: 14rem;
     }
 
     &__links { 
@@ -26,6 +37,10 @@
         }
         .active {
             text-decoration: underline;
+        }
+        @media screen and (max-width: 430px) {
+            padding:15px 0 10px;
+            font-size: 1.3rem;
         }
     }
 }

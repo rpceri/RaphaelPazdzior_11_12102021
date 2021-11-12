@@ -1,6 +1,6 @@
 .gallerie {
     width: 100%;
-    height: 40rem;
+    height: 44rem; /* 415 ou 255 sur le figma , contrainte : les images seront  coupées et centrées dans le cadre de l’image.*/
     position: relative;
 
     @media screen and (max-width: 600px) {
@@ -11,13 +11,16 @@
     &__image {      
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: none; /* possible: cover mais correpsond moins à la demande */
+        @media screen and (max-width: 1279px) {
+            object-fit: cover; 
+        }
         border-radius: 9px;  
     }
     &__bt {
         position: absolute;
         top: 14rem;
-        color: rgba($text-color-secondaire, 0.8);
+        color: $text-color-secondaire;
         cursor: pointer;
 
         &-precedent {
@@ -25,7 +28,6 @@
             @media screen and (max-width: 600px) {
                 left: 0rem;
                 top: 10rem;
-
             }
         }
 

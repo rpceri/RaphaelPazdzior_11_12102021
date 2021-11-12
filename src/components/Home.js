@@ -17,13 +17,14 @@ export default class Home extends Component {
                 <h3 className="imgEntete__title">Chez vous, partout et ailleurs</h3>
               </div>
 
-            {console.log(this.state.logementDatasCpHF)}
-            <section >
+            {/*console.log(this.state.logementDatasCpHF)*/}
+            <section className="section-home">
                 {this.state.logementDatasCpHF.map(unLogement => {
                     return (
-                        <Link to={`/DetailEtablissement/${unLogement.id}`} key={unLogement.id}> {/* link de react-router-dom pertmet d'avoir des balise <a> */}
+                        <Link to={`/DetailEtablissement/${unLogement.id}`} key={unLogement.id}> {/* link de react-router-dom permet d'avoir des balises <a> */}
                             <article>
                                 <img src={unLogement.cover} alt={unLogement.title} />
+                                <div className="FadeAway"></div>
                                 <p>{unLogement.title}</p>
                             </article>
                         </Link>

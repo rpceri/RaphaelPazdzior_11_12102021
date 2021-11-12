@@ -7,7 +7,8 @@ import ComposantHeader from "./components/Header.js";
 import ComposantFooter from "./components/Footer.js";
 import ComposantPageHome from "./components/Home.js";
 import ComposantPageAbout from "./components/About.js";
-import ComposantDetailEtablissement from "./components/DetailEtablissement/DetailEtablissement.js";
+import ComposantDetailEtablissement from "./components/DetailEtablissement.js";
+import ComposantPage404 from "./components/Page404.js"
 
 export default class RouteConfig extends Component {
     render() {
@@ -24,7 +25,10 @@ export default class RouteConfig extends Component {
                             <ComposantPageAbout />
                         </Route>
                         <Route path="/DetailEtablissement/:etablissementId">
-                            <ComposantDetailEtablissement logementDatasDe={this.props.logementDatas}/>
+                            <ComposantDetailEtablissement logementDatasDe={this.props.logementDatas} />
+                        </Route>
+                        <Route>
+                            <ComposantPage404 />
                         </Route>
                     </Switch>
 
